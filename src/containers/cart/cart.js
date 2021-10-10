@@ -22,7 +22,9 @@ const Cart = ({items, onRemove, onAdd, onRemoveOne}) => {
       <Box p={16}>
         <Box borderRadius={5} overflow="hidden" width="100%" backgroundColor="white">
           {filteredItems.map((item, index) => (
-            <CartItem key={item.name + index} item={item} onRemove={onRemove} onAdd={onAdd} onRemoveOne={onRemoveOne}/>
+            <Box key={item.name + index} borderTop={index > 0 ? "2px solid #f2f2f3" : "unset"}>
+              <CartItem item={item} onRemove={onRemove} onAdd={onAdd} onRemoveOne={onRemoveOne}/>
+            </Box>
           ))}
         </Box>
       </Box>

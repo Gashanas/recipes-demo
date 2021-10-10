@@ -90,7 +90,8 @@ const PRODUCTS = [
     "price":1.99,
     "oldPrice": "2.40",
     "pricePerKg": "4.29",
-  },{
+  },
+  {
     "name":"Lazanijos lakštai",
     "amount":500,
     "imageUrl":"https://cdn.barbora.lt/products/09762dee-5b20-4f6f-817d-d24ebfdf32c5_m.png",
