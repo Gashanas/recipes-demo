@@ -6,14 +6,6 @@ import {Text} from "../../../components/text";
 import {Suggestions} from "./suggestions";
 import {Button} from "../../../components/button";
 
-const PRODUCT = {
-  "name": "Juodasis šokoladas LINDT EXCELLENCE (85%), 100 g",
-  "amount": 400,
-  "oldAmount": 200,
-  "pricePerKg": 1000,
-  "imageUrl": "https://cdn.barbora.lt/products/4ffcbd3d-fa17-47cb-b303-2b9708e4a007_m.png"
-};
-
 const OldPrice = styled(Text)`
   text-decoration: line-through;
 `
@@ -47,10 +39,10 @@ const Card = ({product, onAdd, suggestions}) => {
             </Box>
             <Box height={54}>
               <Box display="flex" alignItems="center" justifyContent="center">
-                <OldPrice as="span" fontWeight={600} color="#999999" fontSize={15}>€{product.oldAmount}</OldPrice>
-                <Text as="span" color="#e22e39" fontWeight={600} fontSize={26}>€{product.amount}</Text>
+                <OldPrice as="span" fontWeight={600} color="#999999" fontSize={15}>{product.oldPrice && `€${product.oldPrice}`}</OldPrice>
+                <Text as="span" color="#e22e39" fontWeight={600} fontSize={26}>€{product.price}</Text>
               </Box>
-              <Text textAlign="center" lineHeight="12px" color="#999999" fontSize={11}>€{product.pricePerKg}
+              <Text textAlign="center" lineHeight="12px" color="#999999" fontSize={11}>{product.pricePerKg && `€${product.pricePerKg}`}
               </Text>
             </Box>
             <Box mt={20} display="flex" alignItems="center" justifyContent="center">

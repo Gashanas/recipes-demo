@@ -37,7 +37,7 @@ const CartItem = ({item, onRemove, onRemoveOne, onAdd}) => (
           </Box>
         </Box>
         <Box>
-          <Text mb={10} color="#e22e39" fontSize={13} fontWeight={700}>€{item.amount}</Text>
+          <Text mb={10} color="#e22e39" fontSize={13} fontWeight={700}>€{item.price}</Text>
         </Box>
       </Box>
     </Box>
