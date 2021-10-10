@@ -21,8 +21,6 @@ function App() {
     })
   }
 
-  console.log("suggestions", suggestions);
-
   return (
     <Box backgroundColor="#f8f4f1" height="100%">
       <NavBar/>
