@@ -1,1 +1,1 @@
-export {default as CartItem} from "./cart_item"
+export {default as CartItem} from "./cart-item"

@@ -12,6 +12,7 @@ import RECIPES from "./constants/recipes";
 function App() {
 
   const [addedItems, setAddedItems] = useState([PRODUCTS[0]]);
+  const [highlightedItems, setHighlightedItems] = useState();
   const [suggestions, setSuggestions] = useState({});
 
   const getSuggestion = ({product}) => {
@@ -19,6 +20,15 @@ function App() {
       productName: product.name,
       suggestions: RECIPES.filter(recipe => recipe.ingredients.find(ingredient => ingredient.name === product.name))
     })
+  }
+
+  const onAddSeveral = ({items}) => {
+    items = items.map(item => ({...item}))
+    setAddedItems(prevState => [...prevState, ...items]);
+    setHighlightedItems(items);
+    setTimeout(() => {
+      setHighlightedItems([])
+    }, 3000)
   }
 
   return (
@@ -34,29 +44,30 @@ function App() {
 
           <ProductList
             products={PRODUCTS}
-            onAdd={(item) => {
+            onAdd={({item}) => {
               setAddedItems(prevState => [...prevState, item]);
-              getSuggestion({product: item});
+              item && getSuggestion({product: item});
             }}
+            onAddSeveral={onAddSeveral}
             suggestions={suggestions}
           />
         </Box>
         <Box width="28%" px={10}>
           <Cart
             items={addedItems}
+            highlightedItems={highlightedItems}
             onRemove={(name) => setAddedItems(prevState => prevState.filter(item => item.name !== name))}
             onAdd={(name) => setAddedItems(prevState => [...prevState, PRODUCTS.find(product => product.name === name)])}
+            onAddSeveral={onAddSeveral}
             onRemoveOne={(name) => setAddedItems(prevState => {
-              const a = [...prevState];
-              a.splice(prevState.map(product => product.name).indexOf(name), 1)
-              return a;
+              const array = [...prevState];
+              array.splice(prevState.map(product => product.name).indexOf(name), 1)
+              return array;
             })}
+            suggestion={suggestions.suggestions && suggestions.suggestions[suggestions.suggestions.length - 1]}
           />
         </Box>
-
-
       </Box>
-
     </Box>
   );
 }

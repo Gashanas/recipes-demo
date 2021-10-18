@@ -2,9 +2,14 @@ import {Box} from "../../../components/box";
 import {Text} from "../../../components/text";
 import trashBin from "../../../images/trash-bin.png";
 
-const CartItem = ({item, onRemove, onRemoveOne, onAdd}) => (
+const CartItem = ({item, isHighlighted, onRemove, onRemoveOne, onAdd}) => (
   <>
-    <Box px={10} py={16} display="flex" minHeight={68} width="100%">
+    <Box
+      px={isHighlighted ? "7px" : 10}
+      py={isHighlighted ? 13 : 16}
+      display="flex" minHeight={68}
+      border={isHighlighted ? "3px solid #42b255" : "unset"}
+    >
       <Box display="flex" alignItems="center">
         <img height={50} src={item.imageUrl} alt="product"/>
       </Box>

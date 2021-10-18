@@ -1,11 +1,9 @@
 import React from 'react';
-import PRODUCTS from "../../../../constants/products";
 import {Box} from "../../../../components/box";
 import {Text} from "../../../../components/text";
-import RECIPES from "../../../../constants/recipes";
 import {Button} from "../../../../components/button";
 
-const Suggestions = ({suggestionsObject, productName}) => {
+const Suggestions = ({suggestionsObject, productName, onAddSeveral}) => {
   const {suggestions} = suggestionsObject;
   return (
     suggestionsObject.productName === productName && suggestions.length ? (
@@ -18,15 +16,15 @@ const Suggestions = ({suggestionsObject, productName}) => {
                height={160}>
             <Box display="flex">
               {suggestions.slice(0, 3).map(suggestion => (
-                <Box height={138} border="1px solid #ccc" p={10} width="calc(100%/3)">
+                <Box key={suggestion.title} height={138} border="1px solid #ccc" p={10} width="calc(100%/3)">
                   <Box display="flex">
                     <Box>
                       <img height={100} width={150} src={suggestion.img_url}/>
                     </Box>
                     <Text px={15} fontWeight={600}>{suggestion.title}</Text>
                   </Box>
-                  <Box display="flex" justifyContent="center">
-                    <Button><Text color="white" fontWeight={600}>Parodyti ingridientus</Text></Button>
+                  <Box display="flex" justifyContent="center" onClick={() => onAddSeveral({items: suggestion.ingredients})}>
+                    <Button><Text color="white" fontWeight={600}>Prideti ingridientus</Text></Button>
                   </Box>
                 </Box>
               ))}

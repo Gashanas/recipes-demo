@@ -10,7 +10,7 @@ const OldPrice = styled(Text)`
   text-decoration: line-through;
 `
 
-const Card = ({product, onAdd, suggestions}) => {
+const Card = ({product, onAdd, onAddSeveral, suggestions}) => {
   return (
     <Box width="calc(100%/4)">
       <Box maxHeight={415} pl={10} pr={10} pb={20}>
@@ -46,12 +46,12 @@ const Card = ({product, onAdd, suggestions}) => {
               </Text>
             </Box>
             <Box mt={20} display="flex" alignItems="center" justifyContent="center">
-              <Button onClick={() => onAdd(product)}><Text color="white" fontWeight={600}>Į krepšelį</Text></Button>
+              <Button onClick={() => onAdd({item: product})}><Text color="white" fontWeight={600}>Į krepšelį</Text></Button>
             </Box>
           </Box>
         </Box>
       </Box>
-      <Suggestions suggestionsObject={suggestions} productName={product.name}/>
+      <Suggestions suggestionsObject={suggestions} productName={product.name} onAddSeveral={onAddSeveral}/>
     </Box>
 
   );
