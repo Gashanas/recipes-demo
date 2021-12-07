@@ -3,6 +3,8 @@ import {Text} from "../../components/text";
 import {Box} from "../../components/box";
 import {CartItem} from "./components";
 import {Button} from "../../components/button";
+import {PieChart} from "../../components/charts";
+import PRODUCTS from "../../constants/products";
 
 
 const Cart = ({items, highlightedItems, onRemove, onAdd, onAddSeveral, onRemoveOne, suggestion}) => {
@@ -41,18 +43,62 @@ const Cart = ({items, highlightedItems, onRemove, onAdd, onAddSeveral, onRemoveO
               <Box p={"8px"} borderBottom="2px solid #ccc">
                 Jūsų krepšelį atitinkantys receptai:
               </Box>
-              <Box key={suggestion.title} p={10}>
-                <Box display="flex">
+              <Box key={suggestion.title}>
+                <Box borderBottom="2px solid #ccc" display="flex" p={10}>
                   <Box>
                     <img height={80} width={110} src={suggestion.img_url}/>
                   </Box>
                   <Box>
-                  <Text px={15} fontWeight={600} fontSize={14} pb={"8px"}><a href={suggestion.url} target="_blank">{suggestion.title}</a></Text>
-                  <Box display="flex" justifyContent="center"
-                       onClick={() => onAddSeveral({items: suggestion.ingredients})}>
-                    <Button><Text color="white" fontWeight={600}>Prideti ingridientus</Text></Button>
+                    <Text px={15} fontWeight={600} fontSize={14} pb={"8px"}><a href={suggestion.url}
+                                                                               target="_blank">{suggestion.title}</a></Text>
+                    <Box display="flex" justifyContent="center"
+                         onClick={() => {
+                           // Remapping ingredients replacing it's props with items props in order to not override amount value which differs in ingredients
+                           // TODO Still not working as expected. Kolkas kaip workArounda naudoju PRODUCTS constantas cia.
+                           // Mes iteruojam per ingridientus, kurie turi kita ammounto property nei produktai, tad reikia
+                           // permatinti juos su PRODUCTS is constatu, negalim tiesiog settinti visu objekt is ingredients, turetume setinti is produkts. Tai arba
+                           // perdaryti onAddSeveral callbacko funkcija, ir paduoti tik name'us ir jau teve isifiltruoti pagal pavadinima is PRODUCTS
+                           // TODO paskaityti viska. Issikelti logika is cia, i atskira funkcija arba komponenta arba isvis i teva.
+                           let products = [];
+                           suggestion.ingredients.forEach(
+                             ingredient => {
+                               const productFromProductList = PRODUCTS.find(item => item.name === ingredient.name);
+                               const productInCart = filteredItems.find(item => item.name === ingredient.name);
+                               const amountNeeded = ingredient.amount;
+                               const quantityInCart = productInCart?.quantity || 0;
+                               const amountInCart = productFromProductList?.amount * quantityInCart || 0;
+                               const missingItemsCount = amountInCart < amountNeeded ? Math.ceil(amountNeeded / productFromProductList?.amount) - quantityInCart : 0;
+
+                               const missingItems = Array(missingItemsCount).fill(productFromProductList);
+
+                               products = products.concat(missingItems);
+                             }
+                           )
+                           products.forEach(product => {
+                             suggestion.ingredients.find(ingredient => ingredient.name === product.name);
+                           })
+                           onAddSeveral({
+                             items: products
+                           })
+                         }
+                         }>
+                      <Button><Text color="white" fontWeight={600}>Prideti ingridientus</Text></Button>
+                    </Box>
                   </Box>
-                  </Box>
+                </Box>
+                <Box display="flex" mx="8px">
+                  {suggestion.ingredients.map(ingredient => {
+                    const itemInCart = filteredItems.find(item => item.name === ingredient.name)
+                    return (
+                      <Box key={ingredient.name} my={10} mx="2px">
+                        <PieChart
+                          amount={itemInCart && itemInCart.amount * itemInCart.quantity}
+                          requiredAmount={ingredient.amount}
+                          imageUrl={ingredient.imageUrl}
+                        />
+                      </Box>
+                    )
+                  })}
                 </Box>
               </Box>
             </Box>
