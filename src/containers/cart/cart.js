@@ -21,7 +21,7 @@ const Cart = ({items, highlightedItems, onRemove, onAdd, onAddSeveral, onRemoveO
     })))
   }, [items])
   return (
-    <Box position="sticky" pt={10} top={77} mx={10} backgroundColor="#f6f6f8" boxShadow="0 2px 4px rgb(0 0 0 / 7%)"
+    <Box overflow="scroll" position="sticky" pt={10} top={77} mx={10} backgroundColor="#f6f6f8" boxShadow="0 2px 4px rgb(0 0 0 / 7%)"
          height="calc(100vh - 87px)">
       <Text fontSize={13} fontWeight={600} px={16} pt={16}>
         Krepšelis
