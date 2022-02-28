@@ -1,6 +1,7 @@
 import {Box} from "../../../components/box";
 import {Text} from "../../../components/text";
 import trashBin from "../../../images/trash-bin.png";
+import theme from "../../../theme";
 
 const CartItem = ({item, isHighlighted, onRemove, onRemoveOne, onAdd}) => (
   <>
@@ -8,7 +9,7 @@ const CartItem = ({item, isHighlighted, onRemove, onRemoveOne, onAdd}) => (
       px={isHighlighted ? "7px" : 10}
       py={isHighlighted ? 13 : 16}
       display="flex" minHeight={68}
-      border={isHighlighted ? "3px solid #42b255" : "unset"}
+      border={isHighlighted ? `3px solid ${theme.colors.success}` : "unset"}
     >
       <Box display="flex" alignItems="center">
         <img height={50} src={item.imageUrl} alt="product"/>
@@ -42,7 +43,7 @@ const CartItem = ({item, isHighlighted, onRemove, onRemoveOne, onAdd}) => (
           </Box>
         </Box>
         <Box>
-          <Text mb={10} color="#e22e39" fontSize={13} fontWeight={700}>€{item.price}</Text>
+          <Text mb={10} color={theme.colors.primary} fontSize={13} fontWeight={700}>€{item.price}</Text>
         </Box>
       </Box>
     </Box>

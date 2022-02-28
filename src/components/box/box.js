@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import {border, boxShadow, color, flexbox, layout, position, space,} from 'styled-system';
+import {border, boxShadow, color, flexbox, layout, position, space, background} from 'styled-system';
 
 const BoxContainer = styled.div`
   cursor: ${({onClick}) => (onClick ? 'pointer' : undefined)};
@@ -12,6 +12,7 @@ const BoxContainer = styled.div`
   ${layout}
   ${position}
   ${space}
+  ${background}
 `;
 
 /**

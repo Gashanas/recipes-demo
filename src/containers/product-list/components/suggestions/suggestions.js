@@ -2,17 +2,18 @@ import React from 'react';
 import {Box} from "../../../../components/box";
 import {Text} from "../../../../components/text";
 import {Button} from "../../../../components/button";
+import theme from "../../../../theme";
 
 const Suggestions = ({suggestionsObject, productName, onAddSeveral}) => {
   const {suggestions} = suggestionsObject;
   return (
     suggestionsObject.productName === productName && suggestions.length ? (
       <Box mt={-20} mx={10}>
-        <Box p="5px" backgroundColor="#42b255" width="calc((100%/4) -40px)">
+        <Box p="5px" backgroundColor={theme.colors.success} width="calc((100%/4) -40px)">
           <Text color="white" fontWeight={600}>Rekomenduojami receptai</Text>
         </Box>
         <Box height={170}>
-          <Box border="3px solid #42b255" position="absolute" backgroundColor="white" top={408} left="10px" width="940px"
+          <Box border={`3px solid ${theme.colors.success}`} position="absolute" backgroundColor="white" top={408} left="10px" width="940px"
                height={160}>
             <Box display="flex">
               {suggestions.slice(0, 3).map(suggestion => (

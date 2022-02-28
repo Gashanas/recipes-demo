@@ -1,7 +1,7 @@
 import React from 'react';
 import {Box} from "../../components/box";
 
-import logoImage from "../../images/barbora-logo.png"
+import logoImage from "../../images/ka-valgom-logo.jpeg"
 
 const NavBar = (props) => {
   return (

@@ -4,7 +4,8 @@ import styled from "styled-components";
 import {Box} from "../../components/box";
 import {Text} from "../../components/text";
 
-import Ads from "../../images/ads.png"
+import Ads from "../../images/ka-valgom-bg.jpeg"
+import theme from "../../theme";
 
 
 const CATEGORIES = [
@@ -21,10 +22,10 @@ const Category = styled.div`
   display: flex;
   align-items: center;
   cursor: pointer;
-  background-color: ${({isSelected}) => isSelected ? '#c21b25' : 'unset'};
+  background-color: ${({isSelected}) => isSelected ? theme.colors.primary : 'unset'};
 
   &:hover {
-    background-color: #c21b25;
+    background-color: ${theme.colors.primary_80};
   }
 `
 const SubCategoryItem = styled.div`
@@ -44,26 +45,26 @@ const Pointer = styled.div`
 const Categories = () => {
   return (
     <>
-      <Box backgroundColor="#e22e39" borderRadius={5} height={70} display="flex" overflow="hidden">
+      <Box backgroundColor={theme.colors.primary_60} borderRadius={5} height={70} display="flex" overflow="hidden">
         {CATEGORIES.map((category, index) => (
           <Category isSelected={index === 0} key={category}>
             <Box width="100%">
-              <Text fontWeight={800} textAlign="center" fontSize={14} color="white">{category}</Text>
+              <Text fontWeight={800} textAlign="center" fontSize={14} color={theme.colors.secondary}>{category}</Text>
             </Box>
           </Category>
         ))}
       </Box>
-      <Box display="flex" justifyContent="flex-start">
-        {SUB_CATEGORIES.map(category => (
-          <SubCategoryItem key={category}>
-            <Text fontSize={12}>
-              {category}
-            </Text>
-          </SubCategoryItem>
-        ))}
-      </Box>
+      {/*<Box display="flex" justifyContent="flex-start">*/}
+      {/*  {SUB_CATEGORIES.map(category => (*/}
+      {/*    <SubCategoryItem key={category}>*/}
+      {/*      <Text fontSize={12}>*/}
+      {/*        {category}*/}
+      {/*      </Text>*/}
+      {/*    </SubCategoryItem>*/}
+      {/*  ))}*/}
+      {/*</Box>*/}
       <Pointer>
-        <img width="100%" src={Ads}/>
+        <Box mt={24} backgroundImage={`url(${Ads})`} height={400} backgroundPosition="center"/>
       </Pointer>
     </>
   );

@@ -2,6 +2,7 @@ import * as React from 'react';
 import {Doughnut} from 'react-chartjs-2';
 import {ArcElement, Chart} from 'chart.js'
 import {Box} from "../box";
+import theme from "../../theme";
 
 Chart.register(ArcElement);
 
@@ -20,15 +21,15 @@ const PieChart = ({amount = 0, requiredAmount, imageUrl}) => {
       height: "50px",
       width: "50px",
       backgroundColor: [
-        isMoreThanRequired ? 'rgb(255,233,100)' : 'rgb(67 178 84)',
-        isMoreThanRequired ? 'rgb(67 178 84)' : 'rgba(181,190,206,0)',
-        'rgb(255,233,100)',
+        isMoreThanRequired ? theme.colors.warning : theme.colors.success,
+        isMoreThanRequired ? theme.colors.success : 'rgba(181,190,206,0)',
+        theme.colors.warning,
       ],
       margin: 10,
       borderColor: 'rgb(183,182,182)',
       hoverBorderColor: [
-        'rgb(67 178 84)',
-        'rgb(255,158,158)',
+        theme.colors.success_40,
+        theme.colors.danger_40,
       ],
       borderWidth: 1,
 

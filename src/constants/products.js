@@ -2,7 +2,7 @@ const PRODUCTS = [
   {
     "name":"lašišos filė",
     "amount":1,
-    "imageUrl":"https://cdn.barbora.lt/products/a01fd7dd-714b-4a4d-b19b-135f40fced48_s.png",
+    "imageUrl":"https://cdn.barbora.lt/products/4145dea4-6b5d-4a6c-8217-96d2c50cd9c0_s.png",
     "pricePerKg": "4.15",
     "price": "1.42",
     "oldPrice": "3.02"
