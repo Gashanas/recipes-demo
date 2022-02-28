@@ -1,24 +1,24 @@
 {
   "files": {
     "main.css": "/recipes-demo/static/css/main.bc41998c.chunk.css",
-    "main.js": "/recipes-demo/static/js/main.1ad10026.chunk.js",
-    "main.js.map": "/recipes-demo/static/js/main.1ad10026.chunk.js.map",
+    "main.js": "/recipes-demo/static/js/main.865e807a.chunk.js",
+    "main.js.map": "/recipes-demo/static/js/main.865e807a.chunk.js.map",
     "runtime-main.js": "/recipes-demo/static/js/runtime-main.cb65eef2.js",
     "runtime-main.js.map": "/recipes-demo/static/js/runtime-main.cb65eef2.js.map",
-    "static/js/2.f0cd75cd.chunk.js": "/recipes-demo/static/js/2.f0cd75cd.chunk.js",
-    "static/js/2.f0cd75cd.chunk.js.map": "/recipes-demo/static/js/2.f0cd75cd.chunk.js.map",
+    "static/js/2.a1c55a07.chunk.js": "/recipes-demo/static/js/2.a1c55a07.chunk.js",
+    "static/js/2.a1c55a07.chunk.js.map": "/recipes-demo/static/js/2.a1c55a07.chunk.js.map",
     "static/js/3.05bc2e33.chunk.js": "/recipes-demo/static/js/3.05bc2e33.chunk.js",
     "static/js/3.05bc2e33.chunk.js.map": "/recipes-demo/static/js/3.05bc2e33.chunk.js.map",
     "index.html": "/recipes-demo/index.html",
     "static/css/main.bc41998c.chunk.css.map": "/recipes-demo/static/css/main.bc41998c.chunk.css.map",
-    "static/js/2.f0cd75cd.chunk.js.LICENSE.txt": "/recipes-demo/static/js/2.f0cd75cd.chunk.js.LICENSE.txt",
-    "static/media/ads.c73944fc.png": "/recipes-demo/static/media/ads.c73944fc.png",
-    "static/media/barbora-logo.7413f112.png": "/recipes-demo/static/media/barbora-logo.7413f112.png"
+    "static/js/2.a1c55a07.chunk.js.LICENSE.txt": "/recipes-demo/static/js/2.a1c55a07.chunk.js.LICENSE.txt",
+    "static/media/ka-valgom-bg.8ef17239.jpeg": "/recipes-demo/static/media/ka-valgom-bg.8ef17239.jpeg",
+    "static/media/ka-valgom-logo.4c54e2cf.jpeg": "/recipes-demo/static/media/ka-valgom-logo.4c54e2cf.jpeg"
   },
   "entrypoints": [
     "static/js/runtime-main.cb65eef2.js",
-    "static/js/2.f0cd75cd.chunk.js",
+    "static/js/2.a1c55a07.chunk.js",
     "static/css/main.bc41998c.chunk.css",
-    "static/js/main.1ad10026.chunk.js"
+    "static/js/main.865e807a.chunk.js"
   ]
 }
